@@ -1,0 +1,38 @@
+import os
+import tkinter as tk
+import tkinter.messagebox
+import socket
+
+
+root = tk.Tk()
+def checkPip():
+    os.system('start cmd /k pip --version')
+
+def ipCheck():
+    hostname = socket.gethostname()
+    ipAddress = socket.gethostbyname(hostname)
+    tk.messagebox.showinfo("IP ADDRESS", "Hostname : "+hostname+"\n \n IP Address : "+ipAddress)
+
+def CheckNetSetUp():
+    Log = open('C:\\Windows\\debug\\NetSetup.log','r')
+    contents = Log.read()
+    Log.close()
+    tk.messagebox.showinfo('NetSetup',contents)
+
+
+
+canvas1 = tk.Canvas(root, width=300, height=350, bg='lightgreen',relief='raised')
+canvas1.pack()
+label1 = tk.Label(root, text='PIP', bg='lightgreen')
+label1.config(font=('Arial',30))
+canvas1.create_window(150, 80, window=label1)
+btn1=tk.Button(text="CHECK PIP VERSION", command=checkPip, bg='white', fg='black', font=('Arial',15,'bold'))
+canvas1.create_window(150,200,window=btn1)
+btn2=tk.Button(text="IP check", command=ipCheck, bg='white', fg='black', font=('Arial',15,'bold'))
+canvas1.create_window(150,250,window=btn2)
+btn3=tk.Button(text="NetSetup", command=CheckHostId, bg='white', fg='black', font=('Arial',15,'bold'))
+canvas1.create_window(150,300,window=btn3)
+
+
+
+root.mainloop()
