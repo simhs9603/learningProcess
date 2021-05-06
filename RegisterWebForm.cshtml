@@ -1,0 +1,37 @@
+@model AspTest01.Models.User
+
+<h1>Register</h1>
+
+
+@* 사용자 방식 > ASP.NET CORE Post *@
+
+@* Post 방식으로 Form으로 묶은 후 던지기 *@
+
+@*어떤 컨트롤러로 넘길건가*@
+<form class="for-horizonal" method="post" asp-action="Register">
+
+    
+    <div class="form-group">
+        <label>User Name</label> @*입력창에 나타나는 lable*@
+        <input type="text" class="form-control" asp-for="UserName" placeholder="Enter Name" />
+    </div>
+
+    <div class="form-group">
+        <label>User Id</label>
+        <input type="text" class="form-control" asp-for="UserId" placeholder="Enter ID" />
+    </div>
+
+    <div class="form-group">
+        <label>User Password</label>
+        <input type="text" class="form-control" asp-for="UserPassword" placeholder="User Password" />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary"> Registration </button>
+        <a class="btn btn-warning" href="#">Cancel</a>
+    </div>
+
+
+
+
+</form>
